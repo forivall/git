@@ -2615,6 +2615,8 @@ static int handle_revision_opt(struct rev_info *revs, int argc, const char **arg
 		graph_clear(revs->graph);
 		revs->graph = graph_init(revs);
 	} else if (!strcmp(arg, "--no-graph")) {
+		revs->diffopt.output_prefix = NULL;
+		revs->diffopt.output_prefix_data = NULL;
 		graph_clear(revs->graph);
 		revs->graph = NULL;
 	} else if (!strcmp(arg, "--encode-email-headers")) {
